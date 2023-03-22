@@ -1,0 +1,50 @@
+﻿@model ENCUESTAS.encuestas
+
+<form id="formCrearEncuesta"method="post" action="@Url.Action("Create", "Encuestas")" >
+    <table>
+        <tr>
+            <td>
+                @Html.DropDownList("areaList", new SelectList(ViewBag.areas, "id", "area"), "-- Seleccione un area --")
+            </td>
+
+            <td>
+                Tipo de dispositivo
+            </td>
+            <td>
+                @Html.EditorFor(Model => Model.dispositivo, new { htmlAttributes = new { @class = "form-control" } })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" id="formButton" value="Create" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+<h3>Encuestas encontradas:</h3>
+
+<ul id="listaEncuesta">
+    @foreach (var encuesta in ViewBag.encuestas)
+    {
+        <li class="">
+            <div>Tipo de dispositivo: @encuesta.dispositivo <br /> iD deL area: @encuesta.idArea</div>
+        </li>
+    }
+</ul>
+
+<script>
+    $(document).ready(function () {
+        $("#formCrearEncuesta").submit(function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: "/Encuestas/Create",
+                type: "POST",
+                data: $("#formCrearEncuesta").serialize(),
+                success: function (data) {
+                    $("#listaEncuesta").append("<li>"+data.dispositivo+"</li>");
+                }
+            });
+        });
+    });
+</script>

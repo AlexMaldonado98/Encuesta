@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="encuestasModelStoreContainer" CdmEntityContainer="encuestasEntities">
+    <EntitySetMapping Name="areas">
+      <EntityTypeMapping TypeName="encuestasModel.areas">
+        <MappingFragment StoreEntitySet="areas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="area" ColumnName="area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="encuestas">
+      <EntityTypeMapping TypeName="encuestasModel.encuestas">
+        <MappingFragment StoreEntitySet="encuestas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idArea" ColumnName="idArea" />
+          <ScalarProperty Name="dispositivo" ColumnName="dispositivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

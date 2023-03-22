@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="encuestasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="areas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="area" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="encuestas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idArea" Type="int" Nullable="false" />
+    <Property Name="dispositivo" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_encuestas_areas">
+    <End Role="areas" Type="Self.areas" Multiplicity="1" />
+    <End Role="encuestas" Type="Self.encuestas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="areas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="encuestas">
+        <PropertyRef Name="idArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="encuestasModelStoreContainer">
+    <EntitySet Name="areas" EntityType="Self.areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="encuestas" EntityType="Self.encuestas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_encuestas_areas" Association="Self.FK_encuestas_areas">
+      <End Role="areas" EntitySet="areas" />
+      <End Role="encuestas" EntitySet="encuestas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,12 @@
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\bin\Debug\ENCUESTAS.dll.config
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\bin\Debug\ENCUESTAS.dll
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\bin\Debug\ENCUESTAS.pdb
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\bin\Debug\EntityFramework.dll
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\bin\Debug\EntityFramework.xml
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\obj\Debug\ENCUESTAS.csproj.AssemblyReference.cache
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\obj\Debug\ENCUESTAS.csproj.CoreCompileInputs.cache
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\obj\Debug\ENCUESTAS.csproj.CopyComplete
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\obj\Debug\ENCUESTAS.dll
+C:\Users\alexm\source\repos\RegistroDeEncuesta\ENCUESTAS\obj\Debug\ENCUESTAS.pdb
