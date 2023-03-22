@@ -24,14 +24,14 @@ namespace RegistroDeEncuesta.Controllers
 
         // GET: Encuestas/Create
         [HttpPost]
-        public ActionResult Create(int areaList, string dispositivo)
+        public JsonResult Create(int areaList, string dispositivo)
         {
             ENCUESTAS.encuestas b = new ENCUESTAS.encuestas();
             b.idArea = areaList;
             b.dispositivo = dispositivo;
             var encuestaGuardada = a.Agregar(b);
             ViewBag.areas = a.ListarAreas();
-            return RedirectToAction("Index");
+            return Json(new {encuestaGuardada.idArea,encuestaGuardada.dispositivo,area = a.ListarAreas()[encuestaGuardada.idArea - 1].area});
         }
     }
 }

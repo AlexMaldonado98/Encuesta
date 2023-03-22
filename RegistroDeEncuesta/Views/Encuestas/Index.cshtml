@@ -1,6 +1,6 @@
 ﻿@model ENCUESTAS.encuestas
 
-<form id="formCrearEncuesta"method="post" action="@Url.Action("Create", "Encuestas")" >
+<form id="formCrearEncuesta"method="post">
     <table>
         <tr>
             <td>
@@ -27,24 +27,22 @@
 <ul id="listaEncuesta">
     @foreach (var encuesta in ViewBag.encuestas)
     {
-        <li class="">
-            <div>Tipo de dispositivo: @encuesta.dispositivo <br /> iD deL area: @encuesta.idArea</div>
+        <li>
+            <div>Tipo de dispositivo: @encuesta.dispositivo <br /> Area: @ViewBag.areas[encuesta.idArea - 1].area</div>
         </li>
     }
 </ul>
 
 <script>
-    $(document).ready(function () {
-        $("#formCrearEncuesta").submit(function (event) {
-            event.preventDefault();
-            $.ajax({
-                url: "/Encuestas/Create",
-                type: "POST",
-                data: $("#formCrearEncuesta").serialize(),
-                success: function (data) {
-                    $("#listaEncuesta").append("<li>"+data.dispositivo+"</li>");
-                }
-            });
+    $("#formCrearEncuesta").submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+            url: "/Encuestas/Create",
+            type: "POST",
+            data: $("#formCrearEncuesta").serialize(),
+            success: function (data) {
+                $("#listaEncuesta").append('<li><div>Tipo de dispositivo:'+data.dispositivo+'<br/> Area:'+data.area+'</div></li>');
+            }
         });
     });
 </script>
