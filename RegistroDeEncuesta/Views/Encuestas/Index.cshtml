@@ -1,6 +1,6 @@
 ﻿@model ENCUESTAS.encuestas
 
-<form id="formCrearEncuesta"method="post">
+<form id="formCrearEncuesta" method="post">
     <table>
         <tr>
             <td>
@@ -28,7 +28,11 @@
     @foreach (var encuesta in ViewBag.encuestas)
     {
         <li>
-            <div>Tipo de dispositivo: @encuesta.dispositivo <br /> Area: @ViewBag.areas[encuesta.idArea - 1].area</div>
+            @{ 
+                var area = ((List<ENCUESTAS.areas>)ViewBag.Areas).FirstOrDefault(a => a.id == encuesta.idArea);
+            }
+            <!-- <div>Tipo de dispositivo: encuesta.dispositivo <br /> Area: ViewBag.areas[encuesta.idArea - 1].area</div>-->
+            <div>Tipo de dispositivo: @encuesta.dispositivo <br /> Area: @area.area</div>
         </li>
     }
 </ul>

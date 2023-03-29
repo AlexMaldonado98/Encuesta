@@ -31,7 +31,8 @@ namespace RegistroDeEncuesta.Controllers
             b.dispositivo = dispositivo;
             var encuestaGuardada = a.Agregar(b);
             ViewBag.areas = a.ListarAreas();
-            return Json(new {encuestaGuardada.idArea,encuestaGuardada.dispositivo,area = a.ListarAreas()[encuestaGuardada.idArea - 1].area});
+            //return Json(new { encuestaGuardada.idArea, encuestaGuardada.dispositivo, area = a.ListarAreas()[encuestaGuardada.idArea - 1].area });
+            return Json(new {encuestaGuardada.idArea,encuestaGuardada.dispositivo,area = a.ListarAreas().FirstOrDefault(a => a.id == areaList).area});
         }
     }
 }
